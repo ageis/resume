@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%
+% Kevin M. Gallagher's resume/CV <kevingallagher@gmail.com>
+% based upon altacv.cls: https://github.com/liantze/AltaCV
+% (v1.1.5, 1 December 2018) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+\documentclass[10pt,a4paper,normalphoto]{altacv}
+% \documentclass[10pt,a4paper,ragged2e]{altacv}
+
+\geometry{left=1cm,right=9cm,marginparwidth=6cm,marginparsep=1cm,top=1cm,bottom=1cm}
+\usepackage{lmodern}
+
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage[default]{lato}
+  \setmainfont{Lato}
+  \setsansfont{Lato}
+  \setmonofont{Inconsolata}
+  %\pdfmapfile{=lato.map}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[default]{lato}
+%  \pdfmapfile{=lato.map}
+\fi
+
+\usepackage{setspace}
+%\usepackage{xspace}
+%\usepackage{marginfix}
+%\usepackage[stretch=10]{microtype}
+%\usepackage{multicol}
+%\usepackage[parfill]{parskip}
+
+% Change the colours if you want to
+\definecolor{Indigo}{HTML}{00416A}
+\definecolor{Mulberry}{HTML}{72243D}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{PrussianBlue}{HTML}{003153}
+\definecolor{Charcoal}{HTML}{36454F} 
+\colorlet{heading}{Charcoal}
+\colorlet{accent}{Indigo}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+\usepackage[pdfencoding=auto,unicode, bookmarks=false, colorlinks=false, pdfborder={0 0 0},pdftitle={Kevin M. Gallagher's resume}, pdfauthor={Kevin M. Gallagher}, pdfsubject={Kevin M. Gallagher}, pdfkeywords={Kevin M. Gallagher, ageis}]{hyperref}
+
+\begin{document}
+\name{Kevin Gallagher}
+\tagline{Professional Linux systems administrator / DevOps / SRE / security engineer}
+\photo{3cm}{kgallagher}
+\personalinfo{%
+  \email{kevingallagher@gmail.com}
+  \location{United States of America}
+  \homepage{https://cointel.pro}
+  \twitter{@ageis}
+  \linkedin{linkedin.com/in/kevinmichaelgallagher}
+  \github{github.com/ageis}
+  \gpgkey{0xB604C32AD5D7C6D8}
+}
+
+%% Make the header extend all the way to the right, if you want.
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% You can always just use \marginpar{...} if you do
+%% not need to align the top of the contents to any
+%% \cvsection title in the "main" bar.
+\cvsection[page1sidebar]{Recent Work Experience}
+
+\cvevent{Senior Systems Engineer}{Pandora Media, Inc.}{April 2018 – December 2018}{Oakland, CA}
+\begin{itemize}
+\item Wrote Ansible roles covering a diverse environment of \textasciitilde8,000 machines running different versions of Debian. Developed a callback plugin to provide greater visibility of errors in automation code. Migrated various components out of dpkg/Jenkins and into Ansible
+\item Deployed Prometheus exporters, alerts and dashboards to monitor the state of LDAP, BIND DNS and the Logstash/rsyslog pipeline
+\item Developed tooling to share the HashiCorp Vault master key between several team members utilizing Shamir's Secret Sharing
+\item Coordinated the updating of NTP configurations and a 2s leap second correction without disruption
+\item Managed global upgrade of Java JDK which fixed TLS handshakes w/ advertisers and restored revenue. Consulted on PKI and compliance
+\item Participated in the on-call rotation, investigated issues across the full stack, and handled tickets from other departments: including imaging, provisioning, DNS updates, access requests, etc.
+\item Built a new mail server to replace aging infrastructure. Also helped migrate Nagios and Alertmanager notifications into ELK to reduce e-mail volume
+\end{itemize}
+
+\divider
+
+\cvevent{Systems Reliability Engineer}{Cloudflare}{August 2016 – September 2017}{San Francisco, CA}
+\begin{itemize}
+\item Worked on-call, debugging issues across the full stack in nearly \textasciitilde130 points of presence. Responsible for availability of 10\% of internet
+\item Provisioned new datacenters and released new versions of core software to them
+\item Developed and deployed tools for measuring the latency of zone propagation
+\item Contributed ideas and proposals to other teams on security and performance issues
+\item Triaged alerts, wrote incident report(s), updated references and tuned thresholds to reduce noise
+\item Participated in a project to make tools and manual SRE processes more efficient
+\item Fulfilled technical requests from other teams as well as customers
+\end{itemize}
+
+\divider
+
+\cvevent{DevOps Engineer}{Zcash Company}{August 2016 – June 2017}{z.cash}
+\begin{itemize}
+\item Contributed to the design of the zero-knowledge parameter generation ceremony or “trusted setup”
+\item Designed a fully deterministic build process and environment
+\item Assisted with static analysis and fuzzing of software to mitigate C/C++ memory safety issues
+\item Maintained and updated Python-based continuous integration system
+\item Packaged the software, also set up an apt repository and binary releases using off-line, air-gapped processes for signing software
+\item Designed monitoring and alerting systems with metrics \& log aggregation / parsing (using Prometheus, Grafana, and ELK) for the Zcash blockchain, with the ability to detect chain forks and malicious network activity
+\item Responded to security incidents and concerns as needed, once identifying a critical segfault-causing bug (remote DoS) w/ gdb
+\item Implemented multi-factor authentication at an organizational level via TOTP and U2F
+\item Set up a DNS seeder to bootstrap the network and help peers find each other
+\item Automated the entirety of company infrastructure where no version control previously existed
+\end{itemize}
+
+\divider
+
+\cvevent{Systems Administrator}{Freedom of the Press Foundation}{March 2014 – July 2016}{freedom.press}
+\begin{itemize}
+\item Set up self-hosted and secure collaboration solutions instead of relying upon third-party service providers
+\item Wrote custom PHP and JS code to integrate payment processors with Drupal and CiviCRM
+\item Published blogs on assorted topics \& assisted the Executive Director with general operations management
+\item Edited and contributed to guides and trained journalists and other members of the public on encryption
+\item Built the SecureDrop support portal, making improvements to a custom OpenPGP plugin for Redmine. Also built a monitoring system for Tor hidden services, provided technical support to users and administrators, created and maintained the apt software repository for SecureDrop, and helped automate instance setup
+\item Surveyed news organizations for their use, and encouraged adoption of HTTPS and STARTTLS
+\item Wrote scripts for configuring the Tails amnesic operating system for use with SecureDrop
+\item Developed documentation for running hardened Linux kernels w/ grsecurity/PaX and using YubiKeys with SSH+GPG
+\item Wrote Ansible playbooks, Logstash filters and grok patterns covering all services and servers for their ELK deployment
+\end{itemize}
+
+\cvsection{Part-time roles}
+
+\cvevent{}{Library Freedom Project}{February 2015 to Present}{libraryfreedomproject.org}
+\begin{itemize}
+\item Maintaining the website and email server for a project to make real the promise of intellectual freedom and privacy within libraries.
+\end{itemize}
+
+\cvevent{}{Transparency Toolkit}{July 2014 to Present}{transparencytoolkit.org}
+\begin{itemize}
+\item Managing servers and helping with research for a group that gathers data on surveillance and human rights abuses using open-source intelligence and then writes analytics software to present it.
+\end{itemize}
+
+\cvevent{}{The Calyx Institute}{January 2018 to Present}{calyxinstitute.org}
+\begin{itemize}
+\item Helping a small privacy-focused non-profit with minor infrastructural needs on an ad-hoc and hourly basis.
+\end{itemize}
+
+\clearpage
+
+\end{document}
